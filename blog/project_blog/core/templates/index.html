@@ -1,0 +1,61 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+<div class="header">
+  <h2>Blog Full Stack</h2>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+
+    {% for item in posts %}
+        <div class="card">
+          <h2>{{ item.titulo }}</h2>
+          <h5>{{ item.subtitulo }} - {{ item.fecha }}</h5>
+          {% if item.tapa %}
+          <div class="fakeimg">
+             <img src={{item.tapa.url}} style="height:100px;" />
+          </div>
+          {% else %}
+          <div class="fakeimg">
+             <img src="http://elbuscadordelfalla.com/imagenes/sin_imagen.jpg" />
+          </div>
+          {% endif %}
+          <p>{{ item.descripcion }}</p>
+
+        </div>
+
+    {% endfor %}
+
+
+
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>About Me</h2>
+      <div class="fakeimg" style="height:100px;">Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+    </div>
+    <div class="card">
+      <h3>Popular Post</h3>
+      <div class="fakeimg">Image</div><br>
+      <div class="fakeimg">Image</div><br>
+      <div class="fakeimg">Image</div>
+    </div>
+    <div class="card">
+      <h3>Follow Me</h3>
+      <p>Some text..</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+</body>
+</html>
