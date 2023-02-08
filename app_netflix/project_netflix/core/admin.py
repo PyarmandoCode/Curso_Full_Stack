@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import peliculas,genero
+
+admin.site.register([peliculas,genero])
+
+
+
