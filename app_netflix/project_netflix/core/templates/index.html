@@ -4,54 +4,41 @@
 
 <h1 style="text-align: center;">Clasicos en NetFlix - Reseña de Movies</h1>
 
-<div class="row rows-cols-1 row-cols-md-2 g-4">
+<div class="m-4">
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  {% for item in peliculas %}
   <div class="col">
-   <div class="m-4">
-      <div class="card" style="max-width:500px;">
-        <div class="row g-0">
+     <div class="m-4">
+        <div class="card" style="max-width: 500px;">
+      <div class="row g-0">
+
           <div class="col-sm-5" style="background: #868e96;">
-            <img src="https://i.pinimg.com/originals/03/8e/09/038e09018db43b3cf7c4b129be0fc59f.jpg" 
-              class="card-img-top h-100"/>
-          </div> 
-        <div class="col-sm-7">
-          <div class="card-body">
-             <h5 class="card-title">Titulo de la Pelicula</h5>
-             <p class="card-text" >Descripcion de la Pelicula</p>
-
+              <img src="https://i.pinimg.com/originals/03/8e/09/038e09018db43b3cf7c4b129be0fc59f.jpg" class="card-img-top h-100" alt="...">
           </div>
-        </div> 
-          
-      </div>
-    </div>
-  </div>
 
-  <div class="col">
-    <div class="m-4">
-       <div class="card" style="max-width:500px;">
-         <div class="row g-0">
-           <div class="col-sm-5" style="background: #868e96;">
-             <img src="https://i.pinimg.com/originals/03/8e/09/038e09018db43b3cf7c4b129be0fc59f.jpg" 
-               class="card-img-top h-100"/>
-           </div> 
-       </div>
-     </div>
-   </div>
- 
-   <div class="col">
-    <div class="m-4">
-       <div class="card" style="max-width:500px;">
-         <div class="row g-0">
-           <div class="col-sm-5" style="background: #868e96;">
-             <img src="https://i.pinimg.com/originals/03/8e/09/038e09018db43b3cf7c4b129be0fc59f.jpg" 
-               class="card-img-top h-100"/>
-           </div> 
-       </div>
-     </div>
-   </div>
- 
-  
- 
+      <div class="col-sm-7">
+          <div class="card-body">
+              <h5 class="card-title">Reseña</h5>
+              <p class="card-text" style="text-align:justify">Descripcion</p>
+          </div>
+
+          <div class="container">
+              <div class="row">
+              <div class="card-body">
+               <a href="" class="btn btn-success ">Actualizar</a>
+               <a href="" class="btn btn-danger">Eliminar</a>
+              </div>
+          </div>
+         </div>
+      </div>
+  </div>
+  </div>
 </div>
+</div>
+{% endfor %}
+</div>
+
 
 
 {% endblock %}
