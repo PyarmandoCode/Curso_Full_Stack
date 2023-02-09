@@ -9,7 +9,7 @@
  <div class="container">
     <div class="row  height d-flex justify-content-center align-items-center">
       <div class="col-md-5">
-        <form method="GET" action="">
+        <form method="GET" action="{% url 'core:search' %}">
           <i class="fa fa-search"></i>
           <input type="text" name="q" class="form-control form-input" placeholder="Ingrese la Palabra Clave" >
           <span class="left-pan"><i class="fa fa-microphone"></i></span>
@@ -27,19 +27,21 @@
       <div class="row g-0">
 
           <div class="col-sm-5" style="background: #868e96;">
-              <img src="https://i.pinimg.com/originals/03/8e/09/038e09018db43b3cf7c4b129be0fc59f.jpg" class="card-img-top h-100" alt="...">
+            <a href="{% url 'core:detail' item.id %}" >
+              <img src={{item.imagen.url}} class="card-img-top h-100" alt="...">
+            </a> 
           </div>
 
       <div class="col-sm-7">
           <div class="card-body">
-              <h5 class="card-title">Reseña</h5>
-              <p class="card-text" style="text-align:justify">Descripcion</p>
+              <h5 class="card-title">{{item.reseña}}</h5>
+              <p class="card-text" style="text-align:justify">{{item.descripcion}}</p>
           </div>
 
           <div class="container">
               <div class="row">
               <div class="card-body">
-               <a href="" class="btn btn-success ">Actualizar</a>
+               <a href="{% url 'core:detail' item.id %}" class="btn btn-success ">Actualizar</a>
                <a href="" class="btn btn-danger">Eliminar</a>
               </div>
           </div>
