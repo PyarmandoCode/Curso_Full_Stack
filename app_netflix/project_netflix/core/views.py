@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import peliculas
+from .models import peliculas,genero
 from django.db.models import Q
 
 #vista basada en funcion que me permite renderizar
@@ -39,7 +39,22 @@ def detalles(request,id_pelicula=None):
 
 def crear(request):
     template_name="create.html"
-    return render(request,template_name)
+    if request.method=="POST":
+        vargenero=request.POST["genero"]
+        obj_genero=genero.objects.get(codgenero=1)
+        pelicula = peliculas(reseña=request.POST['reseña'],
+        descripcion =request.POST["descripcion"],
+        sipnosis=request.POST["sipnosis"],
+        director=request.POST["director"],
+        puntuacion=request.POST["puntuacion"],
+        genero=obj_genero
+        )
+        pelicula.save()
+    generos=genero.objects.all()
+    context = {
+        "generos":generos
+    }
+    return render(request,template_name,context)
 
 
 
