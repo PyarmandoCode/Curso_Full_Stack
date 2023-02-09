@@ -1,5 +1,7 @@
 from django.db import models
 
+
+
 class genero (models.Model):
     codgenero = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=80)
@@ -21,4 +23,6 @@ class peliculas(models.Model):
 
     def __str__(self):
         return self.reseña 
+
+
     

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import peliculas
+from django.db.models import Q
 
 #vista basada en funcion que me permite renderizar
 #a mi template(html)
@@ -18,7 +19,7 @@ def buscar(request):
         #Guardando en una variable el valos del input
         query=request.GET.get('q')
         #filtrando de la tabla peliculas de acuerdo a la variable
-        results = peliculas.objects.filter(reseña__icontains=query)
+        results = peliculas.objects.filter(Q(reseña__icontains=query) | Q(director__icontains=query))
         #creando un contexto con el resultado del filtro
         context = {
             "peliculas":results
@@ -35,6 +36,11 @@ def detalles(request,id_pelicula=None):
         "pelicula":pel
     }
     return render(request,template_name,context)
+
+def crear(request):
+    template_name="create.html"
+    return render(request,template_name)
+
 
 
 
