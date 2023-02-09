@@ -34,13 +34,11 @@
 
         <div class="form-group">
             <label for="genero">Genero</label>
-            <select class="form-control form-control-lg" id="genero" name="genero">
+            <select class="form-control form-control-lg"  name="genero"  >
                 <option value="">--Seleccione--</option>
                 {% for item in generos %}
-                    <option value={{item.id}}>{{item.nombre}}</option>
-                    <!-- <option value="">Drama</option>
-                    <option value="">Accion</option>
-                    <option value="">Terror</option> -->
+                    <option value={{item.codgenero}}>{{item.nombre}}</option>
+                   
                 {% endfor %}
             </select>
             

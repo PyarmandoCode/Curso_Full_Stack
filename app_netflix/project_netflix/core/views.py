@@ -40,13 +40,16 @@ def detalles(request,id_pelicula=None):
 def crear(request):
     template_name="create.html"
     if request.method=="POST":
-        vargenero=request.POST["genero"]
-        obj_genero=genero.objects.get(codgenero=1)
+        vargenero=request.POST['genero']
+        #print(vargenero)
+        #todo creando el Objeto para el FK
+        obj_genero=genero.objects.get(codgenero=vargenero)
         pelicula = peliculas(reseña=request.POST['reseña'],
         descripcion =request.POST["descripcion"],
         sipnosis=request.POST["sipnosis"],
         director=request.POST["director"],
         puntuacion=request.POST["puntuacion"],
+        #dato del FK pasarle todo el objeto
         genero=obj_genero
         )
         pelicula.save()
