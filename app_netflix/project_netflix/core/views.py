@@ -79,14 +79,12 @@ def editar(request,id_pelicula):
         #vargenero = request.POST['genero']
         obj_genero = genero.objects.get(codgenero=1)
         # todo creando el Objeto para el FK
-        pelicula = peliculas(reseña=request.POST['reseña'],
-                             descripcion=request.POST["descripcion"],
-                             sipnosis=request.POST["sipnosis"],
-                             director=request.POST["director"],
-                             puntuacion=request.POST["puntuacion"],
-                             # dato del FK pasarle todo el objeto
-                             genero=obj_genero
-                             )
+        pelicula.reseña=request.POST['reseña']
+        pelicula.descripcion=request.POST['descripcion']
+        pelicula.sipnosis=request.POST['sipnosis']
+        pelicula.director=request.POST['director']
+        pelicula.puntuacion=request.POST['puntuacion']
+        pelicula.genero=obj_genero
         pelicula.save()
         return HttpResponseRedirect(reverse('core:inicio'))
 
@@ -96,3 +94,4 @@ def editar(request,id_pelicula):
          "generos": generos
         }
     return render(request, template_name, context)
+
